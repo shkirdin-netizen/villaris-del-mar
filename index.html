@@ -69,7 +69,7 @@ body {
   inset: 0;
   background:
     linear-gradient(to bottom, rgba(10,16,20,0.3) 0%, rgba(10,16,20,0.1) 40%, rgba(10,16,20,0.75) 80%, var(--deep) 100%),
-    linear-gradient(135deg, #0D1E28 0%, #1A3040 40%, #0F2030 70%, #0D1A20 100%);
+    url('images/hero.jpg') center center / cover no-repeat;
   z-index: 0;
 }
 
@@ -909,13 +909,7 @@ body {
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-photo">
-    <div class="hero-shimmer"></div>
-    <div class="hero-photo-label">
-      <span>Фото объекта</span>
-      <p>Добавьте фотографию фасада или вида на море</p>
-    </div>
-  </div>
+  <div class="hero-photo"></div>
 
   <div class="hero-top-bar">
     <span class="hero-logo">Вилларис Дел Мар</span>
@@ -974,23 +968,11 @@ body {
 <!-- PHOTO GRID -->
 <div class="photo-section reveal">
   <div class="photo-grid">
-    <div class="photo-cell span2">
-      <div class="photo-cell-inner">
-        <span>Главное фото</span>
-        <p>Фасад дома или вид на море</p>
-      </div>
+    <div class="photo-cell span2" style="background: url('images/exterior.jpg') center center / cover no-repeat;">
     </div>
-    <div class="photo-cell">
-      <div class="photo-cell-inner">
-        <span>Интерьер</span>
-        <p>Вид из окна на море</p>
-      </div>
+    <div class="photo-cell" style="background: url('images/pool2.jpg') center center / cover no-repeat;">
     </div>
-    <div class="photo-cell">
-      <div class="photo-cell-inner">
-        <span>Территория</span>
-        <p>Участок, бассейн</p>
-      </div>
+    <div class="photo-cell" style="background: url('images/view.jpg') center center / cover no-repeat;">
     </div>
   </div>
   <div class="photo-caption">
@@ -1038,6 +1020,40 @@ body {
     </div>
   </div>
 </section>
+
+<!-- GALLERY -->
+<div style="padding: 0 60px 100px; max-width:1200px; margin:0 auto;">
+  <div class="reveal" style="margin-bottom:40px;">
+    <span class="eyebrow">Фотографии</span>
+    <p style="font-size:9px; letter-spacing:2px; color:var(--stone); text-transform:uppercase; margin-top:8px;">Интерьеры — концепция визуализации · Экстерьер — реальные фотографии</p>
+  </div>
+  <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:3px;" class="reveal">
+    <div style="height:280px; background: url('images/pool1.jpg') center/cover no-repeat; position:relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,20,0.4),transparent)"></div>
+      <span style="position:absolute;bottom:16px;left:20px;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--sand-dark);">Бассейн</span>
+    </div>
+    <div style="height:280px; background: url('images/pool2.jpg') center/cover no-repeat; position:relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,20,0.4),transparent)"></div>
+      <span style="position:absolute;bottom:16px;left:20px;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--sand-dark);">Зона отдыха</span>
+    </div>
+    <div style="height:280px; background: url('images/view.jpg') center/cover no-repeat; position:relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,20,0.4),transparent)"></div>
+      <span style="position:absolute;bottom:16px;left:20px;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--sand-dark);">Вид на море</span>
+    </div>
+    <div style="height:280px; background: url('images/hero.jpg') center/cover no-repeat; position:relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,20,0.4),transparent)"></div>
+      <span style="position:absolute;bottom:16px;left:20px;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--sand-dark);">Мастер-спальня · концепция</span>
+    </div>
+    <div style="height:280px; background: url('images/fiolent.jpg') center/cover no-repeat; position:relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,20,0.4),transparent)"></div>
+      <span style="position:absolute;bottom:16px;left:20px;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--sand-dark);">Мыс Фиолент</span>
+    </div>
+    <div style="height:280px; background: url('images/exterior.jpg') center/cover no-repeat; position:relative;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,16,20,0.4),transparent)"></div>
+      <span style="position:absolute;bottom:16px;left:20px;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--sand-dark);">Фасад и территория</span>
+    </div>
+  </div>
+</div>
 
 <!-- FEATURES -->
 <div class="features-section">
