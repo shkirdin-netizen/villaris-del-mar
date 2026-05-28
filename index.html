@@ -1206,12 +1206,22 @@ body {
           </li>
         </ul>
       </div>
-      <div class="loc-map reveal reveal-delay-2" style="background: url('images/map.jpg') center/cover no-repeat; min-height:320px; position:relative; border: 1px solid rgba(184,150,90,0.12);">
-        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,16,20,0.6), transparent)"></div>
-        <div style="position:absolute;bottom:24px;left:24px;">
-          <span class="map-label-main">Мыс Фиолент</span>
-          <span class="map-label-sub" style="margin-top:6px;display:block;">Севастополь · Крым</span>
+      <div class="reveal reveal-delay-2" style="position:relative; min-height:380px; overflow:hidden;">
+        <!-- Фото -->
+        <div style="position:absolute;inset:0;background: url('images/map.jpg') center/cover no-repeat;"></div>
+        <!-- Виньетка по всем краям -->
+        <div style="position:absolute;inset:0;background: radial-gradient(ellipse at center, transparent 40%, rgba(10,16,20,0.7) 80%, rgba(10,16,20,0.95) 100%);"></div>
+        <!-- Затемнение снизу -->
+        <div style="position:absolute;inset:0;background: linear-gradient(to top, rgba(10,16,20,0.9) 0%, transparent 50%);"></div>
+        <!-- Затемнение сверху -->
+        <div style="position:absolute;inset:0;background: linear-gradient(to bottom, rgba(44,74,90,0.3) 0%, transparent 40%);"></div>
+        <!-- Подпись -->
+        <div style="position:absolute;bottom:28px;left:32px;right:32px;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--white);letter-spacing:2px;display:block;margin-bottom:6px;">Мыс Фиолент</span>
+          <span style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);">Севастополь · Крым</span>
         </div>
+        <!-- Золотая линия сверху -->
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);"></div>
       </div>
     </div>
   </div>
