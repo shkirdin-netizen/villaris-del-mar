@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Частная резиденция у моря — Вилларис Дел Мар, Севастополь</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand: #E8DDD0;
+  --sand-dark: #C9BAA8;
+  --stone: #8A7968;
+  --deep: #111210;
+  --deep2: #1A1917;
+  --sea: #1E3340;
+  --sea2: #2C4A5A;
+  --gold: #B8965A;
+  --gold-light: #D4B07A;
+  --gold-pale: rgba(184,150,90,0.12);
+  --white: #F5F0EB;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+body {
+  background: var(--deep);
+  color: var(--sand);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── UTILITY ── */
+.gold { color: var(--gold); }
+.eyebrow {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: block;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 40px;
+}
+.section-title em { font-style:italic; color: var(--gold-light); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 80px;
+  overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(10,16,20,0.3) 0%, rgba(10,16,20,0.1) 40%, rgba(10,16,20,0.75) 80%, var(--deep) 100%),
+    linear-gradient(135deg, #0D1E28 0%, #1A3040 40%, #0F2030 70%, #0D1A20 100%);
+  z-index: 0;
+}
+
+/* Subtle animated sea shimmer */
+.hero-shimmer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse 100% 50% at 50% 60%, rgba(44,74,90,0.4) 0%, transparent 65%);
+  animation: shimmer 8s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer {
+  from { opacity: 0.6; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.04); }
+}
+
+.hero-photo-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0.18;
+}
+.hero-photo-label span {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--sand);
+  display: block;
+}
+.hero-photo-label p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--sand-dark);
+  margin-top: 8px;
+}
+
+.hero-top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  padding: 32px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(10,16,20,0.7), transparent);
+}
+
+.hero-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: var(--white);
+  opacity: 0;
+  animation: fadeIn 1s 0.2s forwards;
+}
+
+.hero-nav-contact {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184,150,90,0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.3s;
+  opacity: 0;
+  animation: fadeIn 1s 0.4s forwards;
+}
+.hero-nav-contact:hover { border-color: var(--gold); }
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  padding: 0 60px;
+  max-width: 900px;
+}
+
+.hero-tag {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0;
+  animation: fadeUp 1s 0.5s forwards;
+}
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7.5vw, 108px);
+  font-weight: 300;
+  line-height: 0.95;
+  color: var(--white);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeUp 1.1s 0.7s forwards;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+  display: block;
+}
+
+.hero-sub {
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: var(--sand-dark);
+  margin-bottom: 48px;
+  max-width: 480px;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeUp 1s 0.9s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 1s 1.1s forwards;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: var(--gold);
+  color: var(--deep);
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: background 0.3s;
+}
+.btn-gold:hover { background: var(--gold-light); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--sand-dark);
+  text-decoration: none;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(200,185,168,0.25);
+  padding-bottom: 3px;
+  transition: color 0.3s, border-color 0.3s;
+}
+.btn-ghost:hover { color: var(--white); border-color: var(--sand); }
+
+.hero-specs-bar {
+  position: absolute;
+  bottom: 0;
+  right: 60px;
+  z-index: 5;
+  display: flex;
+  gap: 0;
+  opacity: 0;
+  animation: fadeUp 1s 1.4s forwards;
+}
+
+.hero-spec {
+  padding: 20px 32px;
+  border-left: 1px solid rgba(184,150,90,0.2);
+  background: rgba(17,18,16,0.7);
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+.hero-spec:last-child { border-right: 1px solid rgba(184,150,90,0.2); }
+
+.hero-spec-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 300;
+  color: var(--white);
+  display: block;
+  line-height: 1;
+}
+.hero-spec-lbl {
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  display: block;
+  margin-top: 5px;
+}
+
+/* ── MANIFESTO ── */
+.manifesto {
+  padding: 120px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: center;
+  border-bottom: 1px solid rgba(184,150,90,0.08);
+}
+
+.manifesto-left {
+  position: relative;
+}
+
+.manifesto-ornament {
+  width: 1px;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  margin: 0 auto 32px;
+}
+
+.manifesto-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 120px;
+  font-weight: 300;
+  color: rgba(184,150,90,0.06);
+  line-height: 1;
+  text-align: center;
+  margin-top: -20px;
+}
+
+.manifesto-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.5vw, 44px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.3;
+  margin-bottom: 28px;
+}
+
+.manifesto-body {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--sand-dark);
+  max-width: 560px;
+}
+.manifesto-body strong { color: var(--white); font-weight: 400; }
+
+/* ── PHOTO GRID placeholder ── */
+.photo-section {
+  padding: 0 60px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 320px 240px;
+  gap: 3px;
+}
+
+.photo-cell {
+  background: var(--sea);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-cell.span2 { grid-row: span 2; }
+
+.photo-cell-inner {
+  text-align: center;
+  opacity: 0.25;
+}
+.photo-cell-inner span {
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sand);
+  display: block;
+}
+.photo-cell-inner p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--sand-dark);
+  margin-top: 6px;
+}
+
+/* Shimmer overlay on photo cells */
+.photo-cell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(44,74,90,0.5), rgba(28,24,20,0.3));
+}
+
+.photo-caption {
+  margin-top: 16px;
+  text-align: right;
+}
+.photo-caption span {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ── ABOUT ── */
+.about-section {
+  padding: 100px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-text p {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--sand-dark);
+  margin-bottom: 24px;
+}
+.about-text p strong { color: var(--white); font-weight: 400; }
+
+.about-card {
+  border: 1px solid rgba(184,150,90,0.15);
+  position: relative;
+}
+
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 40px; right: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.about-card-head {
+  padding: 28px 36px 20px;
+  border-bottom: 1px solid rgba(184,150,90,0.08);
+}
+.about-card-head span {
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.about-card-item {
+  padding: 18px 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.about-card-item:last-child { border-bottom: none; }
+
+.about-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.about-item-text {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--sand-dark);
+}
+.about-item-text strong { color: var(--white); font-weight: 400; }
+
+/* ── FEATURES ── */
+.features-section {
+  background: linear-gradient(180deg, var(--deep) 0%, var(--sea) 50%, var(--deep) 100%);
+  padding: 120px 60px;
+}
+
+.features-inner { max-width: 1200px; margin: 0 auto; }
+
+.features-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+
+.features-intro {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--sand-dark);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(184,150,90,0.08);
+}
+
+.feat {
+  background: var(--deep2);
+  padding: 44px 36px;
+  transition: background 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.feat::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+.feat:hover { background: rgba(44,74,90,0.25); }
+.feat:hover::after { transform: scaleX(1); }
+
+.feat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 300;
+  color: rgba(184,150,90,0.1);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.feat-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+.feat-desc {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--sand-dark);
+}
+
+/* ── SPECS ── */
+.specs-section {
+  padding: 120px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.specs-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(184,150,90,0.1);
+}
+
+.specs-header-note {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--sand-dark);
+}
+
+.specs-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.specs-group { }
+
+.specs-group-title {
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(184,150,90,0.15);
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.spec-lbl { font-size: 11px; color: var(--stone); }
+.spec-val { font-size: 12px; color: var(--white); text-align: right; }
+
+/* ── LOCATION ── */
+.location-outer {
+  background: var(--sea);
+  padding: 120px 60px;
+}
+.location-inner-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 60px;
+}
+.loc-text p {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--sand-dark);
+  margin-bottom: 24px;
+}
+.loc-text p strong { color: var(--white); font-weight: 400; }
+
+.dist-list { list-style: none; margin-top: 8px; }
+.dist-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.dist-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--gold);
+  min-width: 72px;
+  line-height: 1;
+}
+.dist-lbl { font-size: 12px; color: var(--sand-dark); line-height: 1.5; }
+
+.loc-map {
+  background: rgba(17,18,16,0.5);
+  border: 1px solid rgba(184,150,90,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 320px;
+  position: relative;
+  overflow: hidden;
+}
+.loc-map::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 40% 60%, rgba(44,74,90,0.4), transparent 70%);
+}
+.map-pin-wrap { position: relative; z-index: 1; text-align: center; }
+.map-pin-icon {
+  width: 22px; height: 28px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  margin: 0 auto 16px;
+  position: relative;
+}
+.map-pin-icon::after {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.map-label-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--white);
+  display: block;
+  letter-spacing: 2px;
+}
+.map-label-sub {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--stone);
+  display: block;
+  margin-top: 6px;
+}
+
+/* ── SCENARIOS ── */
+.scenarios-section {
+  padding: 120px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 60px;
+  background: rgba(184,150,90,0.06);
+}
+
+.scenario {
+  background: var(--deep2);
+  padding: 48px 36px;
+  position: relative;
+  transition: background 0.4s;
+}
+.scenario:hover { background: rgba(28,30,28,0.95); }
+
+.scenario.featured {
+  background: rgba(44,74,90,0.2);
+}
+.scenario.featured::before {
+  content: 'Приоритет';
+  position: absolute;
+  top: 0; right: 32px;
+  background: var(--gold);
+  color: var(--deep);
+  font-size: 7px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 5px 12px;
+}
+
+.scenario-tag {
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.scenario-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.scenario-desc {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--sand-dark);
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(184,150,90,0.1);
+}
+
+.scenario-list { list-style: none; }
+.scenario-item {
+  font-size: 12px;
+  color: var(--sand-dark);
+  padding: 9px 0;
+  padding-left: 16px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  line-height: 1.5;
+}
+.scenario-item::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 10px;
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  padding: 160px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--deep) 0%, var(--sea) 50%, var(--deep) 100%);
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(184,150,90,0.05) 0%, transparent 70%);
+}
+
+.contact-wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-ornament {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  margin: 0 auto 48px;
+}
+
+.contact-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.25;
+  margin-bottom: 40px;
+}
+
+.contact-sub {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--sand-dark);
+  margin-bottom: 56px;
+  letter-spacing: 0.3px;
+}
+
+.contact-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.contact-note {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ── FOOTER ── */
+.footer {
+  padding: 40px 60px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 3px;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.footer-right span {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--stone);
+}
+
+/* ── REVEAL ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(28px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-top-bar { padding: 24px 24px; }
+  .hero-content { padding: 0 24px; }
+  .hero-specs-bar { display: none; }
+  .manifesto { padding: 80px 24px; grid-template-columns: 1fr; gap: 40px; }
+  .manifesto-left { display: none; }
+  .photo-section { padding: 0 24px 60px; }
+  .about-section, .specs-section, .scenarios-section { padding: 80px 24px; }
+  .about-grid, .location-grid, .features-header { grid-template-columns: 1fr; gap: 40px; }
+  .features-section { padding: 80px 24px; }
+  .features-grid, .specs-cols, .scenarios-grid { grid-template-columns: 1fr; }
+  .specs-header { grid-template-columns: 1fr; gap: 24px; }
+  .contact-section { padding: 100px 24px; }
+  .footer { padding: 32px 24px; }
+  .location-outer { padding: 80px 24px; }
+  .photo-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .photo-cell.span2 { grid-row: span 1; height: 280px; }
+  .photo-cell { height: 200px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo">
+    <div class="hero-shimmer"></div>
+    <div class="hero-photo-label">
+      <span>Фото объекта</span>
+      <p>Добавьте фотографию фасада или вида на море</p>
+    </div>
+  </div>
+
+  <div class="hero-top-bar">
+    <span class="hero-logo">Вилларис Дел Мар</span>
+    <a href="#contact" class="hero-nav-contact">Связаться с агентом</a>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Мыс Фиолент · Севастополь · Крым</div>
+    <h1 class="hero-title">
+      Частная<br>
+      <em>резиденция</em><br>
+      у моря
+    </h1>
+    <p class="hero-sub">Закрытый поселок элит-класса с прямым выходом к открытому морю. Редкий формат для российской курортной недвижимости.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-gold">Запросить просмотр</a>
+      <a href="#about" class="btn-ghost">Об объекте ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-specs-bar">
+    <div class="hero-spec">
+      <span class="hero-spec-val">225</span>
+      <span class="hero-spec-lbl">м² площадь</span>
+    </div>
+    <div class="hero-spec">
+      <span class="hero-spec-val">128</span>
+      <span class="hero-spec-lbl">м² кровля</span>
+    </div>
+    <div class="hero-spec">
+      <span class="hero-spec-val">3</span>
+      <span class="hero-spec-lbl">уровня</span>
+    </div>
+    <div class="hero-spec">
+      <span class="hero-spec-val">8м</span>
+      <span class="hero-spec-lbl">бассейн</span>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<div class="manifesto reveal">
+  <div class="manifesto-left">
+    <div class="manifesto-ornament"></div>
+    <div class="manifesto-num">I</div>
+  </div>
+  <div>
+    <p class="manifesto-quote">«Место, где тишина измеряется расстоянием до воды»</p>
+    <p class="manifesto-body">
+      Вилларис Дел Мар — один из немногих закрытых поселков в Крыму с <strong>собственным пляжем и прямым выходом к открытому морю</strong>. Не вид на море из окна — а море как часть вашего пространства.<br><br>
+      Мыс Фиолент. Скалистое побережье. Прозрачная вода. Особый микроклимат. Здесь не отдыхают — здесь живут иначе.
+    </p>
+  </div>
+</div>
+
+<!-- PHOTO GRID -->
+<div class="photo-section reveal">
+  <div class="photo-grid">
+    <div class="photo-cell span2">
+      <div class="photo-cell-inner">
+        <span>Главное фото</span>
+        <p>Фасад дома или вид на море</p>
+      </div>
+    </div>
+    <div class="photo-cell">
+      <div class="photo-cell-inner">
+        <span>Интерьер</span>
+        <p>Вид из окна на море</p>
+      </div>
+    </div>
+    <div class="photo-cell">
+      <div class="photo-cell-inner">
+        <span>Территория</span>
+        <p>Участок, бассейн</p>
+      </div>
+    </div>
+  </div>
+  <div class="photo-caption">
+    <span>Фотографии предоставляются по запросу · Возможен удалённый видео-тур</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <span class="eyebrow">Об объекте</span>
+      <h2 class="section-title">Дом, который<br>ждёт <em>вашего</em><br>характера</h2>
+      <p>Предчистовая отделка — это не недостаток. Это редкая возможность создать пространство точно под себя: выбрать материалы, решения для каждого помещения, воплотить собственное видение — а не адаптироваться к чужому.</p>
+      <p>Средняя стоимость домов в поселке с готовой отделкой — <strong>от 50 млн рублей</strong>. Этот объект предлагается ниже рынка: вы входите в актив и создаёте его ценность сами.</p>
+      <p>Поселок Вилларис Дел Мар — <strong>редкий формат для Крыма и для России</strong>: закрытая охраняемая территория с прямым выходом к открытому морю и собственным пляжем.</p>
+    </div>
+
+    <div class="reveal reveal-delay-2">
+      <div class="about-card">
+        <div class="about-card-head">
+          <span>Включено в стоимость</span>
+        </div>
+        <div class="about-card-item">
+          <div class="about-dot"></div>
+          <p class="about-item-text"><strong>Бассейн 8 метров</strong> — котлован и конструкция готовы, чистовая отделка включена в цену</p>
+        </div>
+        <div class="about-card-item">
+          <div class="about-dot"></div>
+          <p class="about-item-text"><strong>Эксплуатируемая кровля 128 м²</strong> — готовая конструкция под вашу концепцию: лаунж, джакузи или терраса с видом на море</p>
+        </div>
+        <div class="about-card-item">
+          <div class="about-dot"></div>
+          <p class="about-item-text"><strong>Все коммуникации</strong> — электро 15 кВт, скважина, газгольдер 8 м³, септик, интернет</p>
+        </div>
+        <div class="about-card-item">
+          <div class="about-dot"></div>
+          <p class="about-item-text"><strong>Благоустройство участка</strong> — мощение, парковка на 2 автомобиля, беседка с барбекю</p>
+        </div>
+        <div class="about-card-item">
+          <div class="about-dot"></div>
+          <p class="about-item-text"><strong>Панорамный вид на море</strong> — не перекроют, гарантировано расположением дома</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features-section">
+  <div class="features-inner">
+    <div class="features-header">
+      <div class="reveal">
+        <span class="eyebrow">Преимущества</span>
+        <h2 class="section-title">Шесть причин,<br>которые <em>решают</em></h2>
+      </div>
+      <p class="features-intro reveal reveal-delay-1">Объект сочетает редкость расположения, архитектуру современного хай-тека и инфраструктуру закрытого поселка — всё это в одном из самых живописных мест черноморского побережья.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feat reveal">
+        <div class="feat-num">01</div>
+        <p class="feat-title">Прямой выход к морю</p>
+        <p class="feat-desc">Закрытый спуск к открытому морю — редкость не только для Крыма, но и для курортной недвижимости России. Ваш пляж. Ваше время. Ваш ритм.</p>
+      </div>
+      <div class="feat reveal reveal-delay-1">
+        <div class="feat-num">02</div>
+        <p class="feat-title">Закрытая территория</p>
+        <p class="feat-desc">Охрана и видеонаблюдение круглосуточно. Единый архитектурный стиль. Вы выбираете окружение по уровню, а не по случайности.</p>
+      </div>
+      <div class="feat reveal reveal-delay-2">
+        <div class="feat-num">03</div>
+        <p class="feat-title">Кровля 128 м²</p>
+        <p class="feat-desc">Готовая конструкция под вашу концепцию — открытая терраса с видом на море, лаунж-зона или приватный бар. Третий уровень, который не просто существует, а работает.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-num">04</div>
+        <p class="feat-title">Мыс Фиолент</p>
+        <p class="feat-desc">«Божья земля» в переводе с греческого. Скалистое побережье, прозрачная вода, мягкий климат. Одно из наиболее ценных мест Крыма с точки зрения природы и расположения.</p>
+      </div>
+      <div class="feat reveal reveal-delay-1">
+        <div class="feat-num">05</div>
+        <p class="feat-title">Пространство под ваш характер</p>
+        <p class="feat-desc">Предчистовое состояние — вы не переделываете чужие решения. Каждый материал, каждая деталь — ваш выбор. По запросу возможна организация ремонта.</p>
+      </div>
+      <div class="feat reveal reveal-delay-2">
+        <div class="feat-num">06</div>
+        <p class="feat-title">Инфраструктура</p>
+        <p class="feat-desc">Магазин и кофейня в поселке. Детская и спортивная зоны. 250 м до транспорта. 15 минут до Севастополя — городской ритм по выбору, не по необходимости.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SPECS -->
+<div class="specs-section">
+  <div class="specs-header reveal">
+    <div>
+      <span class="eyebrow">Характеристики</span>
+      <h2 class="section-title" style="margin-bottom:0;">Всё об <em>объекте</em></h2>
+    </div>
+    <p class="specs-header-note">Дом построен в стиле хай-тек на монолитном основании. Высота потолков 3 м, панорамное остекление, продуманная планировка с мастер-спальней и эксплуатируемой кровлей.</p>
+  </div>
+
+  <div class="specs-cols reveal">
+    <div class="specs-group">
+      <p class="specs-group-title">Дом</p>
+      <div class="spec-row"><span class="spec-lbl">Площадь</span><span class="spec-val">225 м²</span></div>
+      <div class="spec-row"><span class="spec-lbl">Этажей</span><span class="spec-val">2 + кровля</span></div>
+      <div class="spec-row"><span class="spec-lbl">Высота потолков</span><span class="spec-val">3 м</span></div>
+      <div class="spec-row"><span class="spec-lbl">Кровля-терраса</span><span class="spec-val">128 м²</span></div>
+      <div class="spec-row"><span class="spec-lbl">Стиль</span><span class="spec-val">Хай-тек</span></div>
+      <div class="spec-row"><span class="spec-lbl">Отделка</span><span class="spec-val">Предчистовая</span></div>
+      <div class="spec-row"><span class="spec-lbl">Бассейн</span><span class="spec-val">8 м, конструкция готова</span></div>
+    </div>
+    <div class="specs-group">
+      <p class="specs-group-title">Планировка</p>
+      <div class="spec-row"><span class="spec-lbl">Комнаты</span><span class="spec-val">3 + кабинет</span></div>
+      <div class="spec-row"><span class="spec-lbl">Мастер-спальня</span><span class="spec-val">С гардеробной</span></div>
+      <div class="spec-row"><span class="spec-lbl">Санузлы</span><span class="spec-val">2</span></div>
+      <div class="spec-row"><span class="spec-lbl">Кухня-гостиная</span><span class="spec-val">Выход на террасу</span></div>
+      <p class="specs-group-title" style="margin-top:32px;">Участок</p>
+      <div class="spec-row"><span class="spec-lbl">Площадь участка</span><span class="spec-val">4,5 сотки</span></div>
+      <div class="spec-row"><span class="spec-lbl">Парковка</span><span class="spec-val">2 автомобиля</span></div>
+    </div>
+    <div class="specs-group">
+      <p class="specs-group-title">Коммуникации</p>
+      <div class="spec-row"><span class="spec-lbl">Электроэнергия</span><span class="spec-val">15 кВт</span></div>
+      <div class="spec-row"><span class="spec-lbl">Водоснабжение</span><span class="spec-val">Скважина</span></div>
+      <div class="spec-row"><span class="spec-lbl">Газ</span><span class="spec-val">Газгольдер 8 м³</span></div>
+      <div class="spec-row"><span class="spec-lbl">Канализация</span><span class="spec-val">Септик</span></div>
+      <div class="spec-row"><span class="spec-lbl">Интернет</span><span class="spec-val">Проведён</span></div>
+      <p class="specs-group-title" style="margin-top:32px;">Поселок</p>
+      <div class="spec-row"><span class="spec-lbl">Охрана</span><span class="spec-val">24/7 + видео</span></div>
+      <div class="spec-row"><span class="spec-lbl">Выход к морю</span><span class="spec-val">Прямой, закрытый</span></div>
+      <div class="spec-row"><span class="spec-lbl">Пляж</span><span class="spec-val">Собственный</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- LOCATION -->
+<div class="location-outer">
+  <div class="location-inner-wrap">
+    <div class="reveal">
+      <span class="eyebrow">Расположение</span>
+      <h2 class="section-title">Мыс Фиолент —<br><em>Божья земля</em></h2>
+    </div>
+    <div class="location-grid">
+      <div class="loc-text reveal">
+        <p>Фиолент в переводе с греческого — «Божья страна». Скалистое побережье, прозрачная вода, особый микроклимат с мягкими зимами и долгим летом.</p>
+        <p>Поселок находится <strong>в 15 км от исторического центра Севастополя</strong> — достаточно далеко для тишины и приватности, достаточно близко когда нужен город.</p>
+        <ul class="dist-list">
+          <li class="dist-item">
+            <span class="dist-val">0</span>
+            <span class="dist-lbl">Прямой выход к морю с территории поселка</span>
+          </li>
+          <li class="dist-item">
+            <span class="dist-val">250м</span>
+            <span class="dist-lbl">До остановок общественного транспорта</span>
+          </li>
+          <li class="dist-item">
+            <span class="dist-val">15 км</span>
+            <span class="dist-lbl">До исторического центра Севастополя</span>
+          </li>
+          <li class="dist-item">
+            <span class="dist-val">10 мин</span>
+            <span class="dist-lbl">До инфраструктуры Гагаринского района</span>
+          </li>
+        </ul>
+      </div>
+      <div class="loc-map reveal reveal-delay-2">
+        <div class="map-pin-wrap">
+          <div class="map-pin-icon"></div>
+          <span class="map-label-main">Вилларис Дел Мар</span>
+          <span class="map-label-sub">Мыс Фиолент · Севастополь</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SCENARIOS -->
+<section class="scenarios-section">
+  <div class="reveal">
+    <span class="eyebrow">Для кого этот объект</span>
+    <h2 class="section-title">Три сценария<br><em>владения</em></h2>
+  </div>
+  <div class="scenarios-grid">
+    <div class="scenario reveal">
+      <span class="scenario-tag">Резиденция для семьи</span>
+      <p class="scenario-title">Дом под<br>ваш характер</p>
+      <p class="scenario-desc">Предчистовая отделка — редкая возможность создать пространство именно под себя, а не адаптироваться к чужому ремонту</p>
+      <ul class="scenario-list">
+        <li class="scenario-item">Постоянное проживание или сезонный отдых</li>
+        <li class="scenario-item">Ремонт по вашему проекту с нуля</li>
+        <li class="scenario-item">Море и чистый воздух — среда для жизни семьи</li>
+        <li class="scenario-item">Закрытое сообщество одного уровня</li>
+      </ul>
+    </div>
+    <div class="scenario featured reveal reveal-delay-1">
+      <span class="scenario-tag">Актив у моря</span>
+      <p class="scenario-title">Вход<br>ниже рынка</p>
+      <p class="scenario-desc">Средняя стоимость домов в поселке с отделкой — от 50 млн. Вы входите в объект и создаёте его рыночную стоимость сами</p>
+      <ul class="scenario-list">
+        <li class="scenario-item">Прирост стоимости после отделки: +20–30%</li>
+        <li class="scenario-item">Редкий формат — таких объектов единицы</li>
+        <li class="scenario-item">Закрытый поселок с прямым выходом к морю</li>
+        <li class="scenario-item">Цена обсуждается индивидуально</li>
+      </ul>
+    </div>
+    <div class="scenario reveal reveal-delay-2">
+      <span class="scenario-tag">Арендный бизнес</span>
+      <p class="scenario-title">Доход<br>от аренды</p>
+      <p class="scenario-desc">Высокий и стабильный спрос на закрытые дома у моря в премиальном сегменте — особенно с прямым выходом на пляж</p>
+      <ul class="scenario-list">
+        <li class="scenario-item">Пиковый сезон: июнь–сентябрь</li>
+        <li class="scenario-item">Управление через сервис без вашего участия</li>
+        <li class="scenario-item">Прямой выход к морю = премиальная ставка</li>
+        <li class="scenario-item">Стабильный спрос на объекты закрытых поселков</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-wrap reveal">
+    <div class="contact-ornament"></div>
+    <p class="contact-quote">«Некоторые объекты не ищут — их находят»</p>
+    <p class="contact-sub">
+      Просмотр — по предварительной договорённости.<br>
+      Удалённая презентация с видео-туром — по запросу.<br>
+      Цена обсуждается индивидуально.
+    </p>
+    <div class="contact-btns">
+      <a href="tel:+79782194142" class="btn-gold">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="flex-shrink:0">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.1 10.87a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
+        </svg>
+        +7 (978) 219-41-42
+      </a>
+      <a href="https://wa.me/79163502919" class="btn-ghost">
+        WhatsApp +7 (916) 350-29-19
+      </a>
+    </div>
+    <p class="contact-note">Вилларис Дел Мар · Мыс Фиолент · Севастополь</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-logo">Вилларис Дел Мар</span>
+  <div class="footer-right">
+    <span>Мыс Фиолент · Севастополь · Крым</span>
+    <span>Объект представлен эксклюзивно</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
