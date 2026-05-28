@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Частная резиденция у моря — Вилларис Дел Мар, Севастополь</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109477902', 'ym');
+    ym(109477902, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/109477902" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
@@ -80,7 +93,7 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to bottom, rgba(10,16,20,0.65) 0%, rgba(10,16,20,0.55) 40%, rgba(10,16,20,0.88) 80%, var(--deep) 100%),
+    linear-gradient(to bottom, rgba(10,16,20,0.45) 0%, rgba(10,16,20,0.35) 40%, rgba(10,16,20,0.85) 80%, var(--deep) 100%),
     url('images/hero.png') center center / cover no-repeat;
   z-index: 0;
 }
@@ -200,9 +213,9 @@ body {
 .hero-title em {
   font-style: italic;
   font-weight: 500;
-  color: var(--white);
+  color: var(--gold-light);
   display: block;
-  text-shadow: 0 2px 24px rgba(10,16,20,0.95);
+  text-shadow: 0 2px 24px rgba(10,16,20,0.99), 0 0 40px rgba(10,16,20,0.99);
 }
 
 .hero-sub {
@@ -1193,11 +1206,11 @@ body {
           </li>
         </ul>
       </div>
-      <div class="loc-map reveal reveal-delay-2">
-        <div class="map-pin-wrap">
-          <div class="map-pin-icon"></div>
-          <span class="map-label-main">Вилларис Дел Мар</span>
-          <span class="map-label-sub">Мыс Фиолент · Севастополь</span>
+      <div class="loc-map reveal reveal-delay-2" style="background: url('images/map.jpg') center/cover no-repeat; min-height:320px; position:relative; border: 1px solid rgba(184,150,90,0.12);">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,16,20,0.6), transparent)"></div>
+        <div style="position:absolute;bottom:24px;left:24px;">
+          <span class="map-label-main">Мыс Фиолент</span>
+          <span class="map-label-sub" style="margin-top:6px;display:block;">Севастополь · Крым</span>
         </div>
       </div>
     </div>
